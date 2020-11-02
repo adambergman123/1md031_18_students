@@ -1,9 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>Not Burger King</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+      <main>
+          <h1>Välkommen till Not Burger King</h1>
+      </main>
+
+      <section>
+          <h2> Välj vilken burgare du vill ha  </h2>
+
+          <p>Vi har 3 goa burgare att välja på  </p>
+
+        <table>
+            <thead>
+                  <tr>
+                      <th>Not Whopper</th>
+                      <th>Royale with cheese</th>
+                      <th>Le Big Mac</th>
+                  </tr>
+           </thead>
+
+           <tbody>
+        <tr>
+          <td> <img src="https://prod-wolt-venue-images-cdn.wolt.com/5c091b57ca10af000a566bcd/909d1757ae676cf1b5d4ccc839f59f2d" width="400" height="200" alt="Not Whopper">  </td>
+          <td> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSf_1fLsjRs9XZmVca0UruFkbunnLXtVcivJA&usqp=CAU" width="400" height="200" alt="Royale with cheese"> </td>
+          <td> <img src="https://mb.cision.com/Public/8234/3045295/86c51448d5ee1be1_800x800ar.jpg" width="400" height="200" alt="Le big mac"> </td>
+
+        </tr>
+
+          <tr>
+              <td>
+                <ul>
+                  <li>Smakar bajs</li>
+                  <li>Laktosfri</li>
+                  <li>Utan fiber</li>
+                </ul>
+              </td>
+
+              <td>
+                <ul>
+                  <li>Smakar lite bättre</li>
+                  <li>Laktosfri</li>
+                  <li>50% risk för magsjuka</li>
+                </ul>
+              </td>
+
+              <td>
+                <ul>
+                  <li>Bismak av kemikalier</li>
+                  <li>Laktosfri</li>
+                  <li>Tuggmotstånd</li>
+                </ul>
+              </td>
+          </tr>
+
+        </tbody>
+        </table>
+
+      </section>
+
+      <section id="contact">
+          <h2>Kundinformation
+          </h2>
+
+          <h3>Fyll i dina uppgifter:
+          </h3>
+
+         <form>
+          <p>
+            <label for="fullname">Full Name</label><br>
+            <input type="text" id="fullname" name="fn" required="required" placeholder="Your full name">
+          </p>
+
+          <p>
+            <label for="email">E-mail</label><br>
+            <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+          </p>
+
+          <p>
+            <label for="streetname">Street</label><br>
+            <input type="text" id="streetname" name="sn" placeholder="Street name">
+          </p>
+
+          <p>
+            <label for="housenumber">House</label><br>
+            <input type="text" id="housenumber" name="hn" placeholder="House number">
+          </p>
+
+          <p>
+            <label for="betalning">Betalning</label><br>
+            <select id="betalning" name="btl">
+              <option>Kort</option>
+              <option>Paypal</option>
+              <option>Swish</option>
+              <option>Klarna Faktura</option>
+            </select>
+          </p>
+
+          <p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br>
+            <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked">
+            <label for="undisclosed">Undisclosed</label>
+          </p>
+
+          <button type="submit"><img src="https://images-na.ssl-images-amazon.com/images/I/6186VfIYnPL.png" width="50" height="50"> Place order</button>
+
+        </form>
+
+      </section>
+
+      <footer>
+          <br><br>
+          <hr>
+          <p>Copyright Adam Bergman 2020 - All Rights Reserved<br>
+      </footer>
     </body>
 </html>
