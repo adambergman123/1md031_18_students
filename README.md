@@ -20,4 +20,4 @@ That should be enough to get started. Happy tinkering!
 
 ## Checklist
 
-Before you submit your lab code, make sure you have solved all the mandatory tasks. [This checklist](checklist.md) helps you to keep track of the tasks.
+Before you submit your lab code, make sure you have solved all the mandatory tasks. [This checklist](checklist.md) helps you to keep track of the tasks.# hamburgarsidan
