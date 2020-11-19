@@ -1,98 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Not Burger King</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8"/>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/deli-very.css">
+
+        <script type="text/javascript" src="js/menu.js"></script>
+
+        <script src="js/js_script.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+
+        <script src="/socket.io/socket.io.js" defer></script>
+
+        <script src="js/vue_script.js" defer></script>
+
+
+
+        <title>Not Burger King</title>
+
     </head>
+
     <body>
-      <main>
-          <h1>Välkommen till Not Burger King</h1>
-      </main>
+      <header>
+            <img id="headerimage" src="https://www.panoramaskybar.pl/en/resourcefiles/home-middle-slider-image/interstitial2.jpg?version=10192020162227" alt="Heading pic">
+            <h1>Välkommen till Not Burger King</h1>
+      </header>
 
-      <section>
-          <h2> Välj vilken burgare du vill ha  </h2>
+      <main id="mainSection">
+      <section id="burgersection">
+          <h2>  Välj vilken burgare du vill ha </h2>
 
-          <p>Vi har 3 goa burgare att välja på  </p>
+          <p> Vi har 3 goa burgare att välja på  </p>
 
-        <table>
-            <thead>
-                  <tr>
-                      <th>Not Whopper</th>
-                      <th>Royale with cheese</th>
-                      <th>Le Big Mac</th>
-                  </tr>
-           </thead>
 
-           <tbody>
-        <tr>
-          <td> <img src="https://prod-wolt-venue-images-cdn.wolt.com/5c091b57ca10af000a566bcd/909d1757ae676cf1b5d4ccc839f59f2d" width="400" height="200" alt="Not Whopper">  </td>
-          <td> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSf_1fLsjRs9XZmVca0UruFkbunnLXtVcivJA&usqp=CAU" width="400" height="200" alt="Royale with cheese"> </td>
-          <td> <img src="https://mb.cision.com/Public/8234/3045295/86c51448d5ee1be1_800x800ar.jpg" width="400" height="200" alt="Le big mac"> </td>
 
-        </tr>
+        <div id="wrapper">
 
-          <tr>
-              <td>
-                <ul>
-                  <li>Smakar bajs</li>
-                  <li>Laktosfri</li>
-                  <li>Utan fiber</li>
-                </ul>
-              </td>
+          <ul v-for="burger in burgers">
+             <h3>
+                {{ burger.name }}
+             </h3>
 
-              <td>
-                <ul>
-                  <li>Smakar lite bättre</li>
-                  <li>Laktosfri</li>
-                  <li>50% risk för magsjuka</li>
-                </ul>
-              </td>
+             <img v-bind:src=burger.img width="300" height="200">
 
-              <td>
-                <ul>
-                  <li>Bismak av kemikalier</li>
-                  <li>Laktosfri</li>
-                  <li>Tuggmotstånd</li>
-                </ul>
-              </td>
-          </tr>
+             <li> {{ burger.kcal }} kcal </li>
+             <li v-if="burger.lactose === true"> Contains Lactose </li>
+             <li v-if="burger.gluten === true"> Contains Gluten </li>
 
-        </tbody>
-        </table>
+             <input type="checkbox" v-bind:value=burger.name v-model="checkedBurgers">
+             <label>ORDER</label>
+          </ul>
 
-      </section>
 
-      <section id="contact">
+<!--
+          <div class="box a">
+            <h3> Not whopper </h3>
+            <img src="https://prod-wolt-venue-images-cdn.wolt.com/5c091b57ca10af000a566bcd/909d1757ae676cf1b5d4ccc839f59f2d" width="400" height="200" alt="Not Whopper">
+            <ul>
+              <li>Gott gott</li>
+              <span class="allergi"> <li>Laktosfri</li> </span>
+              <li>Utan fiber</li>
+            </ul>
+          </div>
+
+          <div class="box b">
+            <h3> Royale with cheese </h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSf_1fLsjRs9XZmVca0UruFkbunnLXtVcivJA&usqp=CAU" width="400" height="200" alt="Royale with cheese">
+            <ul>
+              <li>Smakar också gott</li>
+              <span class="allergi"> <li>Laktosfri</li> </span>
+              <li>Vegetarisk</li>
+            </ul>
+          </div>
+
+          <div class="box c">
+            <h3> Le Big Mac </h3>
+            <img src="https://mb.cision.com/Public/8234/3045295/86c51448d5ee1be1_800x800ar.jpg" width="400" height="200" alt="Le big mac">
+            <ul>
+              <li>Briochebröd</li>
+              <span class="allergi"> <li>Glutenfri</li> </span>
+              <li>Tuggmotstånd</li>
+            </ul>
+          </div>
+        </div>
+-->
+
+<!--
+          <div id="box d">
+            <input v-model="arbitraryVariableName">
+            <h3>{{arbitraryVariableName}}</h3>
+          </div>
+
+          <div id="box e">
+            <input v-model="arbitraryVariableName">
+            <h3>{{arbitraryVariableName}}</h3>
+          </div>
+-->
+
+
+       </section>
+
+       <section id="customerinfo">
           <h2>Kundinformation
           </h2>
 
           <h3>Fyll i dina uppgifter:
           </h3>
 
-         <form>
+         <form onsubmit="return false">
           <p>
             <label for="fullname">Full Name</label><br>
-            <input type="text" id="fullname" name="fn" required="required" placeholder="Your full name">
+            <input v-model="fullname" type="text" id="fullname" name="fn" required="required" placeholder="Your full name"/>
           </p>
 
           <p>
             <label for="email">E-mail</label><br>
-            <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+            <input v-model="email" type="email" id="email" name="em" required="required" placeholder="E-mail address"/>
           </p>
-
+<!--
           <p>
             <label for="streetname">Street</label><br>
-            <input type="text" id="streetname" name="sn" placeholder="Street name">
+            <input type="text" id="streetname" name="sn" placeholder="Street name"/>
           </p>
 
           <p>
             <label for="housenumber">House</label><br>
-            <input type="text" id="housenumber" name="hn" placeholder="House number">
+            <input type="text" id="housenumber" name="hn" placeholder="House number"/>
           </p>
-
+-->
           <p>
-            <label for="betalning">Betalning</label><br>
-            <select id="betalning" name="btl">
+            <label for="payment">Payment method</label><br>
+            <select v-model="payment" id="payment" name="btl">
               <option>Kort</option>
               <option>Paypal</option>
               <option>Swish</option>
@@ -100,27 +140,52 @@
             </select>
           </p>
 
+
+          <h3> Click on your location in the map! </h3>
+          <div class="view-box">
+            <div id="dots" v-on:click="displayOrder">
+                <div v-bind:style="{ left: coordinates.x + 'px', top: coordinates.y + 'px'}">
+                  T
+                </div>
+            </div>
+          </div>
+
+
           <p>
-            <input type="radio" id="male" name="gender" value="male">
+            <input v-model="gender" type="radio" id="male" name="gender" value="Male">
             <label for="male">Male</label><br>
-            <input type="radio" id="female" name="gender" value="female">
+            <input v-model="gender" type="radio" id="female" name="gender" value="Female">
             <label for="female">Female</label><br>
-            <input type="radio" id="other" name="gender" value="other">
+            <input v-model="gender" type="radio" id="other" name="gender" value="Other">
             <label for="other">Other</label><br>
-            <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked="checked">
+            <input v-model="gender" type="radio" id="undisclosed" name="gender" value="Undisclosed" checked="checked">
             <label for="undisclosed">Undisclosed</label>
           </p>
 
-          <button type="submit"><img src="https://images-na.ssl-images-amazon.com/images/I/6186VfIYnPL.png" width="50" height="50"> Place order</button>
+<!-- Button som funkar bra med Javascript:
+         <button id="orderButton" type="submit"><img src="https://images-na.ssl-images-amazon.com/images/I/6186VfIYnPL.png" width="50" height="50" onclick="getValues();"> Place order</button>
+-->
+
+<!-- Denna button funkar bra med Vue -->
+         <div id="orderButton">
+           <button v-on:click="orderBurgers"><img src="https://images-na.ssl-images-amazon.com/images/I/6186VfIYnPL.png" width="50" height="50">Place order</button>
+         </div>
 
         </form>
 
+        <h3 v-if="orderButtonIsClicked"> ORDER SUMMARY </h3>
+        <li v-for="object in customerInfo" id="recievedOrder">
+          {{object.value}}
+        </li>
+
       </section>
+      </main>
 
       <footer>
           <br><br>
           <hr>
           <p>Copyright Adam Bergman 2020 - All Rights Reserved<br>
       </footer>
+
     </body>
 </html>
