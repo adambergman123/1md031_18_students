@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+body {
+    font-family: "Droid Serif", sans-serif;
+    font-size: 1.05em;
+    text-align: center;
+    /*color: #F36C6C*/
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 1%;
+  position: absolute;
+  margin-top: -16%;
+  margin-left: 24%;
+}
+
+#headerimage {
+  opacity: 50%;
+  height: 300px;
+  width: 100%;
+}
+
+#headerandimage {
+  overflow:hidden;
+}
+
+
+#burgersection {
+  border: 4px ridge #F36C6C;
+  padding: 1%;
+  background-color: black;
+  color: white;
+}
+
+#customerinfo {
+  border: 5px dotted black;
+  border-top: none;
+  padding: 2%;
+}
+
+input[type="radio"] {
+    height: 0.9em;
+    width: 0.9em;
+}
+
+.allergi {
+  font-family: "Droid Serif", sans-serif;
+  color: #F36C6C;
+  font-weight:900;
+}
+
+button {
+  margin: 0.5% 1%;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: #F36C6C;
+  cursor: pointer;
+}
+
+table {
+  width: 101%;
+}
+
+section {
+  margin: 0 1%;
+}
+
+#wrapper {
+     display: grid;
+     grid-gap: 20px;
+     grid-template-columns: 32% 32% 32%;
+ }
